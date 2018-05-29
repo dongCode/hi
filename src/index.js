@@ -60,7 +60,7 @@ function urlParse (url) {
 }
 
 /**
- * @name debounce
+ * @name delayExe
  * @description
  *  把某一段时间内重复触发的事件归结到一次回调中执行；
  *  例如 搜索框内多次输入，只在最后一次输入后,进行查寻
@@ -69,7 +69,7 @@ function urlParse (url) {
  * @example
  * @return Object {id:123, a:b}
  */
-function debounce (fn, delay) {
+function delayExe (fn, delay) {
   let timer
   return function () {
     let args = arguments,

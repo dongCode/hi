@@ -6,7 +6,7 @@
 
 </head>
 <body>
-<div>测试debouce</div>
+<div>测试delayExe</div>
 <input type="text" onkeyup="debounceHi(this)">
 <script src="../src/index.js"></script>
 <script>
@@ -23,9 +23,9 @@
   let url_str = 'https://www.baidu.com/s?wd=js&rsv_spt=1&rsv_iqid=0xb1c489b300004e96&issp=1&f=8&rsv_bp=0&rsv_idx=2&ie=utf-8&tn=baiduhome_pg&rsv_enter=1&rsv_sug3=11&rsv_sug1=7&rsv_sug7=100&rsv_t=9cf2uGL3MuOIWDPKeivPL0phS%2BBirPkEBree5NszRuZdj7MRLvKMawR0HxBZUw1oZWtk&rsv_sug2=0&inputT=5092&rsv_sug4=8896'
   console.log(urlParse(url_str))
   /**
-   * debounce 测试
+   * delayExe 测试
    */
-  let debounceHi = debounce(function (target) {
+  let debounceHi = delayExe(function (target) {
     console.log(target.value)
   }, 1000)
   /**
