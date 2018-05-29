@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+
+</head>
+<body>
+<div>测试debouce</div>
+<input type="text" onkeyup="debounceHi(this)">
+<script src="../src/index.js"></script>
+<script>
+  let hi = 'hi'
+  let i
+  /**
+   * formatDate 测试
+   */
+  let test_date = new Date()
+  console.log(formatDate(test_date, 'yyyy-MM-dd hh:mm:ss'))
+  /**
+   * urlParse 测试
+   */
+  let url_str = 'https://www.baidu.com/s?wd=js&rsv_spt=1&rsv_iqid=0xb1c489b300004e96&issp=1&f=8&rsv_bp=0&rsv_idx=2&ie=utf-8&tn=baiduhome_pg&rsv_enter=1&rsv_sug3=11&rsv_sug1=7&rsv_sug7=100&rsv_t=9cf2uGL3MuOIWDPKeivPL0phS%2BBirPkEBree5NszRuZdj7MRLvKMawR0HxBZUw1oZWtk&rsv_sug2=0&inputT=5092&rsv_sug4=8896'
+  console.log(urlParse(url_str))
+  /**
+   * debounce 测试
+   */
+  let debounceHi = debounce(function (target) {
+    console.log(target.value)
+  }, 1000)
+  /**
+   * once 测试
+   */
+  let onceHi = once(function () {
+    console.log('hi')
+  })
+  for (i = 0; i < 10; i++) {
+    onceHi()
+  }
+  /**
+   * typeIs 测试
+   */
+  let typeArr = ['string', 0, NaN, null, function test1 () {
+  }, undefined, {}, []]
+  for (i = 0; i < typeArr.length; i++) {
+    console.log(typeIs(typeArr[i]))
+  }
+</script>
+</body>
+</html>
