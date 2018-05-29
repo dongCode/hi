@@ -7,7 +7,7 @@
 </head>
 <body>
 <div>测试delayExe</div>
-<input type="text" onkeyup="debounceHi(this)">
+<input type="text" onkeyup="delayExeHi(this)">
 <script src="../src/index.js"></script>
 <script>
   let hi = 'hi'
@@ -25,7 +25,7 @@
   /**
    * delayExe 测试
    */
-  let debounceHi = delayExe(function (target) {
+  let delayExeHi = delayExe(function (target) {
     console.log(target.value)
   }, 1000)
   /**
