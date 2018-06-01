@@ -164,3 +164,14 @@ function isIdCard(str) {
 function isPhoneNum(str) {
   return /^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/.test(str)
 }
+/**
+ * @name randomNum
+ * @description
+ * 生成随机整数
+ * @param  {Number} min
+ * @param  {Number} max
+ * @return {Number}
+ */
+function randomNum(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
