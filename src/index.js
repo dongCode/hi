@@ -158,7 +158,7 @@ function isIdCard(str) {
  * @name isPhoneNum
  * @description
  * 判断是否为手机号
- * @param  {String|Number} str
+ * @param  {String|Number} st r
  * @return {Boolean}
  */
 function isPhoneNum(str) {
