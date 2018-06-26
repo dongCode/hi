@@ -11,6 +11,28 @@
     _.each({0:1, 1:2, 2:3, length: 3}, function (item) {
       console.log(item)
     })
+    function compose() {
+
+      let   fns= arguments
+
+      let  start = arguments.length - 1
+
+      return function() {
+
+        let result = fns[start].apply(this, arguments)
+
+        while (start--) result = fns[start](result)
+
+        return result
+
+      }
+
+    }
+    let word = str => str
+    let is = str => str + ' is'
+    let wonderful = str => str + ' wonderful!'
+    let composeFn = compose(wonderful,is, word)
+    console.log(composeFn('world'))
 
 </script>
 </body>
