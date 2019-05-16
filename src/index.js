@@ -175,3 +175,15 @@ function isPhoneNum(str) {
 function randomNum(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+const validateMobile = function (val) {
+  val = val.replace(/[^\d]/g, '')
+  if (val.length <= 3) {
+    return val
+  } else if (val.length <= 7) {
+    val = val.replace(/(\d{3})(\d{0,4})/, '$1-$2')
+  } else {
+    val = val.replace(/(\d{3})(\d{0,4})(\d{0,4})/, '$1-$2-$3')
+  }
+  return val
+}
