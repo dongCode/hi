@@ -187,3 +187,18 @@ const validateMobile = function (val) {
   }
   return val
 }
+
+function debounce (func, delay) {
+  let timer
+  delay = delay || 200
+  return function (...args) {
+    return new Promise((resolve, reject) => {
+      if (timer) {
+        clearTimeout(timer)
+      }
+      timer = setTimeout(() => {
+        resolve(func.apply(this, args))
+      }, delay)
+    })
+  }
+}
