@@ -1,11 +1,9 @@
-import React from 'react';
-import './App.css';
-import { Counter } from './pages/counter';
+import RoutesElement from './routes';
 
 function App() {
   return (
     <div className="App">
-      <Counter />
+      <RoutesElement />
     </div>
   );
 }
