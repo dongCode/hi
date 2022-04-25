@@ -2,7 +2,7 @@ import RoutesElement from './routes';
 
 function App() {
   return (
-    <div className="App">
+    <div className="g-basic-layout">
       <RoutesElement />
     </div>
   );
