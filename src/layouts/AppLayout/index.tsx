@@ -1,6 +1,6 @@
 import './index.less';
 import { Layout, Menu } from 'bellejs';
-import { Content } from 'bellejs/lib/layout/layout';
+import { Content, Header } from 'bellejs/lib/layout/layout';
 import Sider from 'bellejs/lib/layout/Sider';
 import { Outlet } from 'react-router-dom';
 import MenuItem from 'bellejs/lib/menu/MenuItem';
