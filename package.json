@@ -67,6 +67,6 @@
   },
   "lint-staged": {
     "./src/**/*.{ts,tsx}": "eslint --cache",
-    "./src/**/*.{ts,tsx,less,css}": "pretty-quick --staged"
+    "./src/**/*.{ts,tsx,less,css}": "npx --no-install pretty-quick --staged"
   }
 }
