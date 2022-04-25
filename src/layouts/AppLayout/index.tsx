@@ -1,9 +1,8 @@
 import './index.less';
-import { Breadcrumb, Layout, Menu } from 'bellejs';
-import { Content, Header } from 'bellejs/lib/layout/layout';
+import { Layout, Menu } from 'bellejs';
+import { Content } from 'bellejs/lib/layout/layout';
 import Sider from 'bellejs/lib/layout/Sider';
 import { Outlet } from 'react-router-dom';
-import MenuItem from 'bellejs/lib/menu/MenuItem';
 const AppLayout = () => {
   return (
     <Layout className="g-h100 app-layout">
