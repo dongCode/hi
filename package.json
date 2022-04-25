@@ -67,6 +67,6 @@
   },
   "lint-staged": {
     "*.{ts,tsx}": "eslint --cache",
-    "*.{ts,tsx,less,css}": "npx --no-install pretty-quick --staged"
+    "*.{ts,tsx,less,css}": "pretty-quick --staged"
   }
 }
