@@ -5,7 +5,10 @@ export function CourseView() {
 
   return (
     <div>
-      <h2>Welcome to the {id!.split('-').map(capitalizeString).join(' ')} course!</h2>
+      <h2>
+        Welcome to the{' '}
+        {id!.split('-').map(capitalizeString).join(' ')} course!
+      </h2>
 
       <p>This is a great course. You're gonna love it!</p>
 
