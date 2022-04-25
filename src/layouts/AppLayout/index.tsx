@@ -8,12 +8,20 @@ const AppLayout = () => {
     <Layout className="g-h100 app-layout">
       <header className="header">
         <div className="logo" />
-        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']} />
+        <Menu
+          theme="dark"
+          mode="horizontal"
+          defaultSelectedKeys={['2']}
+        />
       </header>
       <Layout className="g-row">
         <Sider theme="light" collapsible>
           sider
-          <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" />
+          <Menu
+            theme="dark"
+            defaultSelectedKeys={['1']}
+            mode="inline"
+          />
         </Sider>
         <Content
           className="site-layout-background"
