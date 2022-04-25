@@ -66,6 +66,7 @@
     "webpack-bundle-analyzer": "^4.5.0"
   },
   "lint-staged": {
-    "*.{js,jsx}": "eslint"
+    "*.{ts,tsx}": "eslint --cache",
+    "*.{ts,tsx,less,css}": "npx --no-install pretty-quick --staged"
   }
 }
