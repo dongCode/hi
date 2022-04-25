@@ -1,5 +1,10 @@
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import { decrement, increment, incrementByAmount, incrementAsync } from './counterSlice';
+import {
+  decrement,
+  increment,
+  incrementByAmount,
+  incrementAsync,
+} from './counterSlice';
 import styles from './counter.module.css';
 import { useState } from 'react';
 
@@ -10,11 +15,17 @@ export function Counter() {
   return (
     <div>
       <div className={styles.row}>
-        <button className={styles.button} onClick={() => dispatch(increment())}>
+        <button
+          className={styles.button}
+          onClick={() => dispatch(increment())}
+        >
           Increment
         </button>
         <span className={styles.value}>{count}</span>
-        <button className={styles.button} onClick={() => dispatch(decrement())}>
+        <button
+          className={styles.button}
+          onClick={() => dispatch(decrement())}
+        >
           Decrement
         </button>
       </div>
@@ -26,13 +37,17 @@ export function Counter() {
         />
         <button
           className={styles.button}
-          onClick={() => dispatch(incrementByAmount(Number(incrementAmount) || 0))}
+          onClick={() =>
+            dispatch(incrementByAmount(Number(incrementAmount) || 0))
+          }
         >
           Add Amount
         </button>
         <button
           className={styles.asyncButton}
-          onClick={() => dispatch(incrementAsync(Number(incrementAmount) || 0))}
+          onClick={() =>
+            dispatch(incrementAsync(Number(incrementAmount) || 0))
+          }
         >
           Add Async
         </button>
