@@ -1,5 +1,6 @@
 config
 dist
+build
 src/**/*.less
 src/**/*.css
 node_modules
