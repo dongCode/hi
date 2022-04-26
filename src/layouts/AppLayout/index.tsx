@@ -14,7 +14,7 @@ const AppLayout = () => {
           defaultSelectedKeys={['2']}
         />
       </header>
-      <Layout className="g-row">
+      <Layout className="g-row calc-50">
         <Sider theme="light" collapsible>
           sider
           <Menu
