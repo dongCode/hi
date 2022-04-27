@@ -6,6 +6,7 @@ import { Courses } from '@/pages/courses';
 import { CourseView } from '@/pages/courses/view';
 import { Home } from '@/pages/home';
 import { LoginPage } from '@/pages/login';
+import { RequireAuth } from './auth';
 
 export const routesConfig: RouteObject[] = [
   {
@@ -14,12 +15,12 @@ export const routesConfig: RouteObject[] = [
     children: [
       { index: true, element: <Home /> },
       {
-        path: '/login',
-        element: <LoginPage />,
-      },
-      {
         path: '/courses',
-        element: <Courses />,
+        element: (
+          <RequireAuth>
+            <Courses />
+          </RequireAuth>
+        ),
         children: [{ path: ':id', element: <CourseView /> }],
       },
       {
@@ -28,6 +29,10 @@ export const routesConfig: RouteObject[] = [
       },
       { path: '*', element: <NoMatch /> },
     ],
+  },
+  {
+    path: '/login',
+    element: <LoginPage />,
   },
 ];
 

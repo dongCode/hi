@@ -1,17 +1,22 @@
-import { createContext, useContext, useState } from 'react';
+import {
+  createContext,
+  ReactElement,
+  useContext,
+  useState,
+} from 'react';
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 
 /**
  * This represents some generic auth provider API, like Firebase.
  */
-const fakeAuthProvider = {
+const AuthApi = {
   isAuthenticated: false,
   signin(callback: VoidFunction) {
-    fakeAuthProvider.isAuthenticated = true;
+    AuthApi.isAuthenticated = true;
     setTimeout(callback, 100); // fake async
   },
   signout(callback: VoidFunction) {
-    fakeAuthProvider.isAuthenticated = false;
+    AuthApi.isAuthenticated = false;
     setTimeout(callback, 100);
   },
 };
@@ -24,18 +29,23 @@ interface AuthContextType {
 
 export const AuthContext = createContext<AuthContextType>(null!);
 
-export function AuthProvider({ children }: { children: React.ReactNode }) {
-  let [user, setUser] = useState<any>(null);
+export function AuthProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  let [user, setUser] = useState<any>(localStorage.user);
 
   let signin = (newUser: string, callback: VoidFunction) => {
-    return fakeAuthProvider.signin(() => {
+    return AuthApi.signin(() => {
       setUser(newUser);
+      localStorage.user = newUser;
       callback();
     });
   };
 
   let signout = (callback: VoidFunction) => {
-    return fakeAuthProvider.signout(() => {
+    return AuthApi.signout(() => {
       setUser(null);
       callback();
     });
@@ -43,7 +53,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   let value = { user, signin, signout };
 
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider value={value}>
+      {children}
+    </AuthContext.Provider>
+  );
 }
 
 export function useAuth() {
@@ -72,7 +86,11 @@ export function AuthStatus() {
   );
 }
 
-export function RequireAuth({ children }: { children: JSX.Element }) {
+export function RequireAuth({
+  children,
+}: {
+  children: ReactElement;
+}) {
   let auth = useAuth();
   let location = useLocation();
 
@@ -81,10 +99,12 @@ export function RequireAuth({ children }: { children: JSX.Element }) {
     // trying to go to when they were redirected. This allows us to send them
     // along to that page after they login, which is a nicer user experience
     // than dropping them off on the home page.
-    return <Navigate to="/login" state={{ from: location }} replace />;
+    return (
+      <Navigate to="/login" state={{ from: location }} replace />
+    );
   }
 
   return children;
 }
 
-export { fakeAuthProvider };
+export { AuthApi };
