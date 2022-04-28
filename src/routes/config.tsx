@@ -5,7 +5,7 @@ import { Counter } from '@/pages/counter';
 import { Courses } from '@/pages/courses';
 import { CourseView } from '@/pages/courses/view';
 import { Home } from '@/pages/home';
-import { LoginPage } from '@/pages/login';
+import { Login } from '@/pages/login';
 import { RequireAuth } from './auth';
 
 export const routesConfig: RouteObject[] = [
@@ -32,7 +32,7 @@ export const routesConfig: RouteObject[] = [
   },
   {
     path: '/login',
-    element: <LoginPage />,
+    element: <Login />,
   },
 ];
 

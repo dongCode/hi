@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 // @ts-ignore
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
+import { ErrorBoundary, ErrorFallback } from './components';
 
 const container = document.getElementById('root');
 // @ts-ignore
@@ -14,10 +15,12 @@ const root = createRoot(container);
 
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </Provider>
+    <ErrorBoundary fallbackRender={ErrorFallback}>
+      <Provider store={store}>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </Provider>
+    </ErrorBoundary>
   </React.StrictMode>,
 );

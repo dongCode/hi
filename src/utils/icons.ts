@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 export { default as AccountBookFilled } from '@ant-design/icons/AccountBookFilled';
 export { default as AccountBookOutlined } from '@ant-design/icons/AccountBookOutlined';
 export { default as AccountBookTwoTone } from '@ant-design/icons/AccountBookTwoTone';
