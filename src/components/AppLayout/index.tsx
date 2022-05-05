@@ -27,7 +27,7 @@ const AppLayout = () => {
                 <span>首页</span>
               </Link>
             </Item>
-            <Item key="1">
+            <Item key="2">
               <Link to="/courses">
                 <span>权限页</span>
               </Link>

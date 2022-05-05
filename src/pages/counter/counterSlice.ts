@@ -1,5 +1,5 @@
+import { RootDispatch } from '@/types';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { AppDispatch } from '../../store/types';
 import { CounterState } from './types';
 
 const initialState: CounterState = {
@@ -22,12 +22,14 @@ export const counterSlice = createSlice({
   },
 });
 
-export const { increment, decrement, incrementByAmount } = counterSlice.actions;
+export const { increment, decrement, incrementByAmount } =
+  counterSlice.actions;
 
-export const incrementAsync = (amount: number) => (dispatch: AppDispatch) => {
-  setTimeout(() => {
-    dispatch(incrementByAmount(amount));
-  }, 1000);
-};
+export const incrementAsync =
+  (amount: number) => (dispatch: RootDispatch) => {
+    setTimeout(() => {
+      dispatch(incrementByAmount(amount));
+    }, 1000);
+  };
 
 export default counterSlice.reducer;

@@ -1,5 +1,10 @@
-import { useCallback, useReducer, useState } from 'react';
-import { useMountedRef } from '.';
+import {
+  useCallback,
+  useEffect,
+  useReducer,
+  useRef,
+  useState,
+} from 'react';
 
 interface State<D> {
   error: Error | null;
@@ -11,6 +16,22 @@ const defaultInitialState: State<null> = {
   stat: 'idle',
   data: null,
   error: null,
+};
+
+/**
+ * 返回组件的挂载状态，如果还没挂载或者已经卸载，返回false；反之，返回true
+ */
+export const useMountedRef = () => {
+  const mountedRef = useRef(false);
+
+  useEffect(() => {
+    mountedRef.current = true;
+    return () => {
+      mountedRef.current = false;
+    };
+  });
+
+  return mountedRef;
 };
 
 const defaultConfig = {

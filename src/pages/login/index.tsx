@@ -1,15 +1,19 @@
+import './login.less';
+import banner from '@/assets/images/asgp-login-logo.png';
 import { Row, Col, Button, Form, Input } from 'bellejs';
-import { UserOutlined, LockOutlined } from '@/utils/icons';
-import { useEffect } from 'react';
-import './login.css';
+import { UserOutlined, LockOutlined } from '@ant-design/icons';
+import { useAuth, useMount } from '@/utils';
+import { TUser } from '@/types';
 
 export const Login = (props: any) => {
   const [loginForm] = Form.useForm();
-  useEffect(() => {
-    initPage();
-  }, []);
 
-  const initPage = async () => {};
+  useMount(() => {
+    init();
+  });
+
+  const { login } = useAuth();
+  const init = async () => {};
 
   const onCode = async () => {
     try {
@@ -17,7 +21,10 @@ export const Login = (props: any) => {
       console.log('验证码错误', error);
     }
   };
-  const handleLogin = async (values: any) => {};
+  const handleLogin = async (values: TUser) => {
+    login(values);
+  };
+
   return (
     <div className="login-page">
       <div className="login-title">
@@ -27,7 +34,7 @@ export const Login = (props: any) => {
       <div className="login-box">
         <Row>
           <Col span={12}>
-            {/* <img src={bannerImg} alt="login bg" /> */}
+            <img src={banner} alt="login bg" />
           </Col>
           <Col span={12}>
             <div className="user-info-box user-info-box-usually">

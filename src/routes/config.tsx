@@ -1,12 +1,12 @@
 import { RouteObject } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import { AppLayout } from '@/layouts';
+import { AppLayout } from '@/components';
 import { Counter } from '@/pages/counter';
 import { Courses } from '@/pages/courses';
 import { CourseView } from '@/pages/courses/view';
 import { Home } from '@/pages/home';
 import { Login } from '@/pages/login';
 import { RequireAuth } from './auth';
+import NoMatch from './NoMatch';
 
 export const routesConfig: RouteObject[] = [
   {
@@ -35,14 +35,3 @@ export const routesConfig: RouteObject[] = [
     element: <Login />,
   },
 ];
-
-function NoMatch() {
-  return (
-    <div>
-      <h2>It looks like you're lost...</h2>
-      <p>
-        <Link to="/">Go to the home page</Link>
-      </p>
-    </div>
-  );
-}

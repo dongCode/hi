@@ -1,25 +1,22 @@
-import './global.less';
-
 import React from 'react';
-import App from './App';
-import { store } from './store';
 import { Provider } from 'react-redux';
-// @ts-ignore
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
-import { ErrorBoundary, ErrorFallback } from './components';
+// import App from '@/App';
+import store from '@/store';
+import '@/global.less';
+import { ErrorBoundary, ErrorFallback } from '@/components';
 
-const container = document.getElementById('root');
-// @ts-ignore
+const container = document.getElementById('root') as
+  | Element
+  | DocumentFragment;
 const root = createRoot(container);
 
 root.render(
   <React.StrictMode>
     <ErrorBoundary fallbackRender={ErrorFallback}>
       <Provider store={store}>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
+        <BrowserRouter>{/* <App /> */}</BrowserRouter>
       </Provider>
     </ErrorBoundary>
   </React.StrictMode>,

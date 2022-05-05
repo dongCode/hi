@@ -1,11 +1,11 @@
-import { ErrorOrNull } from '@/types';
+import { ErrOrNul } from '@/types';
 import { Component } from 'react';
 import { TErrorFallback } from '@/types';
 
 // https://github.com/bvaughn/react-error-boundary
 class ErrorBoundary extends Component<
   React.PropsWithChildren<{ fallbackRender: TErrorFallback }>,
-  { error: ErrorOrNull }
+  { error: ErrOrNul }
 > {
   state = { error: null };
 
