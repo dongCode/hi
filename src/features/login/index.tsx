@@ -3,7 +3,7 @@ import banner from '@/assets/images/asgp-login-logo.png';
 import { Row, Col, Button, Form, Input } from 'bellejs';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { useAuth, useMount } from '@/utils';
-import { TUser } from '@/types';
+import { TUser } from '@/features/auth/types';
 
 export const Login = (props: any) => {
   const [loginForm] = Form.useForm();

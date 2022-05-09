@@ -1,9 +1,9 @@
 import { useCallback } from 'react';
 import { useStoreDispatch, useStoreSelector } from '@/utils';
-import * as authStore from '@/store/authSlice';
-import { TAuth, TUser } from '@/types';
+import * as authStore from '@/features/auth/authSlice';
+import { TAuth, TUser } from './types';
 
-function useAuth() {
+const useAuth = () => {
   const dispatch: (...args: unknown[]) => Promise<TUser> =
     useStoreDispatch();
 
@@ -27,6 +27,6 @@ function useAuth() {
   const value: TAuth = { user, login, logout, register };
 
   return value;
-}
+};
 
 export default useAuth;

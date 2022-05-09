@@ -1,6 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { AuthForm, RootDispatch, RootState, TUser } from '@/types';
-import * as auth from '@/store/authProvider';
+import { AuthForm, TUser } from './types';
+import * as authAPI from '@/features/auth/api';
+import { getToken } from '@/features/auth/storage';
+import { RootDispatch, RootState } from '@/store/types';
 
 interface State {
   user: TUser | null;
@@ -12,7 +14,7 @@ const initialState: State = {
 
 export const initUser = async () => {
   let user = null;
-  const token = auth.getToken();
+  const token = getToken();
   if (token) {
     // 获取信息
   }
@@ -35,20 +37,22 @@ export const selectUser = (state: RootState) => state.auth.user;
 
 export const login = (form: AuthForm) => {
   return (dispatch: RootDispatch) => {
-    auth.login(form).then((user: TUser) => dispatch(setUser(user)));
+    authAPI
+      .login(form)
+      .then((user: TUser) => dispatch(setUser(user)));
   };
 };
 
 export const register = (form: AuthForm) => {
   return (dispatch: RootDispatch) =>
-    auth
+    authAPI
       .register(form)
       .then((user: TUser) => dispatch(setUser(user)));
 };
 
 export const logout = () => {
   return (dispatch: RootDispatch) =>
-    auth.logout().then(() => dispatch(setUser(null)));
+    authAPI.logout().then(() => dispatch(setUser(null)));
 };
 
 export const init = () => {

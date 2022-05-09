@@ -1,5 +1,5 @@
-import { selectUser } from '@/store/authSlice';
-import useStoreSelector from '@/utils/useStoreSelector';
+import { selectUser } from '@/features/auth/authSlice';
+import { useStoreSelector } from '@/utils';
 
 import { ReactElement } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';

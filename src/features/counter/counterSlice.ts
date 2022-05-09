@@ -1,4 +1,4 @@
-import { RootDispatch } from '@/types';
+import { RootDispatch } from '@/store/types';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { CounterState } from './types';
 

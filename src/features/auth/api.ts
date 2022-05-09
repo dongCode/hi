@@ -1,8 +1,6 @@
-import { TUser } from '@/types';
-import { storage } from '@/utils';
-
-const apiUrl = process.env.REACT_APP_API_URL;
-const { clearToken, setToken } = storage;
+import { TUser } from './types';
+import { clearToken, setToken } from '@/features/auth/storage';
+import { apiUrl } from '@/features/auth/constants';
 
 export const handleUserResponse = ({ user }: { user: TUser }) => {
   setToken(user.token || '');
@@ -48,5 +46,3 @@ export const register = (data: {
 };
 
 export const logout = async () => clearToken();
-
-export const getToken = storage.getToken;
