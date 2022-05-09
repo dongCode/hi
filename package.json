@@ -15,6 +15,7 @@
     "@types/react": "^18.0.6",
     "@types/react-dom": "^18.0.2",
     "@types/react-redux": "^7.1.24",
+    "axios": "^0.27.2",
     "babel-plugin-import": "^1.13.5",
     "bellejs": "^1.0.19",
     "craco-less": "^2.0.0",

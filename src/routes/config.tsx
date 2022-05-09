@@ -4,7 +4,7 @@ import { Counter } from '@/features/counter';
 import { Courses } from '@/features/courses';
 import { CourseView } from '@/features/courses/view';
 import { Home } from '@/features/home';
-import { Login } from '@/features/login';
+import Login from '@/features/login';
 import { RequireAuth } from './auth';
 import NoMatch from './NoMatch';
 

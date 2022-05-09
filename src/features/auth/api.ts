@@ -1,17 +1,14 @@
 import { TUser } from './types';
 import { clearToken, setToken } from '@/features/auth/storage';
-import { apiUrl } from '@/features/auth/constants';
+import { BASE_URL } from '@/features/auth/constants';
 
 export const handleUserResponse = ({ user }: { user: TUser }) => {
   setToken(user.token || '');
   return user;
 };
 
-export const login = (data: {
-  username: string;
-  password: string;
-}) => {
-  return fetch(`${apiUrl}/login`, {
+export const login = (data: { username: string; password: string }) => {
+  return fetch(`${BASE_URL}/login`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -26,11 +23,8 @@ export const login = (data: {
   });
 };
 
-export const register = (data: {
-  username: string;
-  password: string;
-}) => {
-  return fetch(`${apiUrl}/register`, {
+export const register = (data: { username: string; password: string }) => {
+  return fetch(`${BASE_URL}/register`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
